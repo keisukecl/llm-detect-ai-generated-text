@@ -1,0 +1,7 @@
+何のデータをどのようにして評価すればよいか。
+
+・訓練データの10%
+https://www.kaggle.com/code/al1337/0-838-ridgeclf-svd-9-countvec
+
+・訓練データの30%
+https://www.kaggle.com/code/hubert101/0-815-wav2vec-for-begginers

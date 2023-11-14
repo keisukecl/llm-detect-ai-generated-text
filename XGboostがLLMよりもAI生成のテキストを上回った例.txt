@@ -6,3 +6,6 @@ https://www.sciencedirect.com/science/article/pii/S2666386423005015#bib7
 しかし、著者は、このモデルを学習させたジャーナル論文に対して、ニュース記事の項目でテストしたところ、高い精度が得られなかったことを認めている。
 
 しかし、化学ジャーナル論文というドメインに関して、抽出された特徴との関連性は見当たらない。
+
+https://www.kaggle.com/code/tivfrvqhs5/20-feature-xgboost
+で実装例あり
