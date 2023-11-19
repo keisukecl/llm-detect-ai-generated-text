@@ -1,0 +1,6 @@
+なぜか大半のnotebookは以下の処理を最初にしている。
+train = pd.read_csv("/kaggle/input/daigt-v2-train-dataset/train_v2_drcat_02.csv")
+train_data = train[train.RDizzl3_seven == False].reset_index(drop=True)
+train_data = train[train["label"]==1].sample(8000)
+train = pd.concat([train,train_data])
+train['text'] = train['text'].str.replace('\n', '')

@@ -1,0 +1,18 @@
+文章の一貫性
+繰り返される単語の数
+
+def coherence_score(essay_text):
+    # Tokenize the essay text into sentences
+    sentences = essay_text.split('[.!?;,]')
+
+    # Use CountVectorizer to convert sentences to a bag-of-words representation
+    vectorizer = CountVectorizer()
+    sentence_matrix = vectorizer.fit_transform(sentences)
+
+    # Calculate cosine similarity between consecutive sentence vectors
+    similarity_matrix = cosine_similarity(sentence_matrix)
+
+    # Average the similarity scores to get the coherence score
+    average_coherence_score = np.mean(similarity_matrix)
+
+    return average_coherence_score

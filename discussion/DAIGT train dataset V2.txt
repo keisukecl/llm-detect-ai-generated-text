@@ -1,0 +1,24 @@
+以下のデータが格納されている。
+今回のコンペのデータと同じプロンプトで作られたエッセイかどうかはRDizzl3_seven列を見ればわかる。
+
+【内訳】
+アメリカの中高生が作成
+persuade_corpus                       25996
+
+生成AIが書いたエッセイ
+chat_gpt_moth                          2421
+llama2_chat                            2421
+mistral7binstruct_v2                   2421
+mistral7binstruct_v1                   2421
+original_moth                          2421
+train_essays                           1378
+llama_70b_v1                           1172
+falcon_180b_v1                         1055
+darragh_claude_v7                      1000
+darragh_claude_v6                      1000
+radek_500                               500
+NousResearch/Llama-2-7b-chat-hf         400
+mistralai/Mistral-7B-Instruct-v0.1      400
+cohere-command                          350
+palm-text-bison1                        349
+radekgpt4                               200
