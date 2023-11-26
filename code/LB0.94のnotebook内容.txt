@@ -1,0 +1,39 @@
+ベンチマーク
+
+・訓練データセット
+train_v2_drcat_02.csv
+train_essays.csv
+
+・前処理
+1. train_v2_drcat_02.csvから人が書いたエッセイ(6000こ)とAIが書いたエッセイをそれぞれ抽出
+2. 人が書いたエッセイに含まれる文字リストとAIが書いたエッセイに含まれる文字リストからAIが書いたエッセイにだけ含まれる文字リスト（chars_to_remove）を作成
+3. train_v2_drcat_02.csvとtrain_essays.csvを結合して1つの訓練データにし、訓練データからchars_to_removeの文字を削除する
+4. テストデータも3.と同様にchars_to_removeの文字を削除する。また、タイプミスや文法の誤りを修正している。
+5. TFIDFでベクトル化。パラメータは以下の通り
+vectorizer = TfidfVectorizer(
+    ngram_range=(3, 5),
+    tokenizer=lambda x: re.findall(r"[^\W]+", x),
+    token_pattern=None,
+    strip_accents="unicode",
+)
+
+・モデル
+以下のアンサンブル（重みは均一）
+-ロジスティック回帰
+-多項分布ナイーブベイズモデル
+-フーバー損失関数に対する確率的勾配降下法モデル×3
+
+
+
+【検証したこと】
+chars_to_removeの文字を削除・タイプミスや文法の誤り修正の前処理をしなかった場合のスコアを確認（もとは0.940）
+chars_to_removeの文字を削除、タイプミスや文法の誤り修正ともにしなかった場合：0.935
+chars_to_removeの文字を削除のみやった場合：0.940
+タイプミスや文法の誤り修正とのみやった場合：0.935
+
+【考察】
+前処理を見るとAIが書いたエッセイを極力人が書いたようなエッセイに近づけようとしている
+
+【アイデア】
+訓練データからchars_to_removeの文字を削除する
+-> chars_to_removeのうち、他の文字に変換したほうがいいものは変換してより自然な文章に近づける
